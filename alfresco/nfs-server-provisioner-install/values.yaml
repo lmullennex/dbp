@@ -1,2 +1,2 @@
 image:
-  repository: quay-io.artifact.swissre.com/kubernetes_incubator/nfs-provisioner
+  repository: quay.io/external_storage/nfs-client-provisioner
