@@ -1,0 +1,17 @@
+kubectl apply -f ns-aps.yaml
+kubectl apply -f ns-aps-default-account-rolebinding.yaml
+kubectl apply -f pvc-alfresco.yaml -n aps
+
+kubectl create secret \
+  --namespace aps \
+  docker-registry quay-registry-secret \
+    --docker-server=quay.io \
+    --docker-username="alfresco" \
+    --docker-password="alfresco" \
+    --docker-email="dummy@email.com"
+
+kubectl create secret generic licenseaps \
+  --from-file activiti.lic \
+  --namespace aps
+
+helm2 upgrade aps --install ./alfresco-process-services --namespace aps --atomic -f values.yaml
