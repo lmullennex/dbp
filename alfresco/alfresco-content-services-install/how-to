@@ -1,0 +1,3 @@
+kubectl apply -f ns-alfresco.yaml
+kubectl apply -f ns-alfresco-default-account-rolebinding.yaml
+helm2 install ./alfresco-content-services/ -n alfresco --namespace alfresco --atomic -f values.yaml

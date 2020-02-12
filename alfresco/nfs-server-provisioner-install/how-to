@@ -1,0 +1,3 @@
+kubectl apply -f ns-nfs-server.yaml
+kubectl apply -f ns-nfs-server-default-account-rolebinding.yaml
+helm install nfs-server --namespace nfs-server ./nfs-server-provisioner/ --atomic -f values.yaml

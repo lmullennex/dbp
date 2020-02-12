@@ -1,0 +1,35 @@
+global:
+  externalHost: '52.170.160.221'
+  externalProtocol: 'http'
+  externalPort: '80'
+
+repository:
+  replicaCount: 2
+  ingress:
+    hostName: '{{.Values.global.externalHost}}'
+  image:
+    repository: quay.io/alfresco/alfresco-governance-repository-enterprise
+    tag: "3.3.0"
+
+share:
+  ingress:
+    hostName: '{{.Values.global.externalHost}}'
+  image:
+    repository: quay.io/alfresco/alfresco-governance-share-enterprise
+    tag: "3.3.0"
+
+alfresco-search:
+  searchServicesImage:
+    repository: quay.io/alfresco/alfresco-search-services
+  insightEngineImage:
+      repository: quay.io/alfresco/insight-zeppelin
+
+alfresco-infrastructure:
+  nginx-ingress:
+    enabled: false
+  persistence:
+    enabled: false
+
+externalHost: '{{ .Values.global.externalHost }}'
+externalProtocol: '{{ .Values.global.externalProtocol }}'
+externalPort: '{{ .Values.global.externalPort }}'

@@ -1,0 +1,3 @@
+kubectl apply -f ns-nginx.yaml
+kubectl apply -f ns-nginx-default-account-rolebinding.yaml
+helm install nginx --namespace=nginx --atomic -f values.yaml ./nginx-ingress/
