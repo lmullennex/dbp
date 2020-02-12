@@ -1,5 +1,5 @@
 ingress:
-  hostName: "alfresco.k8s.swissre.domain.com"
+  hostName: "52.170.160.221"
   protocol: http
 
 license:
@@ -9,7 +9,7 @@ adminApp:
   environment:
     ACTIVITI_ADMIN_REST_APP_HOST: '{{ .Values.ingress.protocol }}://{{ .Values.ingress.hostName }}'
   image:
-    repository: quay-io.artifact.swissre.com/alfresco/alfresco-process-services-admin
+    repository: quay.io/alfresco/alfresco-process-services-admin
   ingress:
     hostName: '{{ .Values.ingress.hostName }}'
 
@@ -17,20 +17,16 @@ alfresco-process-services:
   alfresco-infrastructure:
     enabled: false
 
-postgresql:
-  image: quay-io.artifact.swissre.com/postgres
-  imageTag: 11.4
-
 processEngine:
   image:
-    repository: quay-io.artifact.swissre.com/alfresco/alfresco-process-services
+    repository: quay.io/alfresco/alfresco-process-services
     tag: 1.10.0
   ingress:
     hostName: '{{ .Values.ingress.hostName }}'
 
 processWorkspace:
   image:
-    repository: quay-io.artifact.swissre.com/alfresco/alfresco-process-workspace-app
+    repository: quay.io/alfresco/alfresco-process-workspace-app
     tag: 1.3.4
   ingress:
     hostName: '{{ .Values.ingress.hostName }}'
